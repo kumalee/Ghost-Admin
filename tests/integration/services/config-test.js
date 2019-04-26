@@ -56,21 +56,21 @@ describe('Integration: Service: config', function () {
         };
         let service = this.subject();
 
-        stubBlogUrl('http://localhost:2368/');
+        stubBlogUrl('http://localhost:2386/');
 
         service.fetch().then(() => {
             expect(
                 service.get('blogUrl'), 'trailing-slash'
-            ).to.equal('http://localhost:2368');
+            ).to.equal('http://localhost:2386');
         });
 
         wait().then(() => {
-            stubBlogUrl('http://localhost:2368');
+            stubBlogUrl('http://localhost:2386');
 
             service.fetch().then(() => {
                 expect(
                     service.get('blogUrl'), 'non-trailing-slash'
-                ).to.equal('http://localhost:2368');
+                ).to.equal('http://localhost:2386');
 
                 done();
             });

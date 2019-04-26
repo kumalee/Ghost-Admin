@@ -9,7 +9,7 @@ describe('Integration: Component: gh-navitem', function () {
     setupRenderingTest();
 
     beforeEach(function () {
-        this.set('baseUrl', 'http://localhost:2368');
+        this.set('baseUrl', 'http://localhost:2386');
     });
 
     it('renders', async function () {

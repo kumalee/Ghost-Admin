@@ -10,7 +10,7 @@ import {setupRenderingTest} from 'ember-mocha';
 const {Errors} = DS;
 
 let configStub = Service.extend({
-    blogUrl: 'http://localhost:2368'
+    blogUrl: 'http://localhost:2386'
 });
 
 let mediaQueriesStub = Service.extend({
@@ -217,7 +217,7 @@ describe('Integration: Component: gh-tag-settings-form', function () {
         await render(hbs`
             {{gh-tag-settings-form tag=tag setProperty=(action setProperty)}}
         `);
-        expect(find('.seo-preview-link').textContent, 'adds url and tag prefix').to.equal('http://localhost:2368/tag/test/');
+        expect(find('.seo-preview-link').textContent, 'adds url and tag prefix').to.equal('http://localhost:2386/tag/test/');
 
         this.set('tag.slug', (new Array(151).join('x')));
         let expectedLength = 70 + '…'.length;

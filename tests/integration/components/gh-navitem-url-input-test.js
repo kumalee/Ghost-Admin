@@ -44,12 +44,12 @@ describe('Integration: Component: gh-navitem-url-input', function () {
     });
 
     it('renders correctly with absolute urls', async function () {
-        this.set('url', 'https://example.com:2368/#test');
+        this.set('url', 'https://example.com:2386/#test');
         await render(hbs`
             {{gh-navitem-url-input baseUrl=baseUrl url=url isNew=isNew clearErrors=(action clearErrors)}}
         `);
 
-        expect(find('input')).to.have.value('https://example.com:2368/#test');
+        expect(find('input')).to.have.value('https://example.com:2386/#test');
 
         this.set('url', 'mailto:test@example.com');
         expect(find('input')).to.have.value('mailto:test@example.com');
