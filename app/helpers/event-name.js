@@ -24,6 +24,17 @@ export const AVAILABLE_EVENTS = [
     {event: 'page.tag.attached', name: 'Tag added to page', group: 'Pages'},
     {event: 'page.tag.detached', name: 'Tag removed from page', group: 'Pages'},
 
+    // GROUPNAME: Posters
+    {event: 'poster.added', name: 'Poster created', group: 'Posters'},
+    {event: 'poster.deleted', name: 'Poster deleted', group: 'Posters'},
+    {event: 'poster.edited', name: 'Poster updated', group: 'Posters'},
+    {event: 'poster.published', name: 'Poster published', group: 'Posters'},
+    {event: 'poster.published.edited', name: 'Published poster updated', group: 'Posters'},
+    {event: 'poster.unpublished', name: 'Poster unpublished', group: 'Posters'},
+    {event: 'poster.tag.attached', name: 'Tag added to poster', group: 'Posters'},
+    {event: 'poster.tag.detached', name: 'Tag removed from poster', group: 'Posters'},
+
+
     // GROUPNAME: Tags
     {event: 'tag.added', name: 'Tag created', group: 'Tags'},
     {event: 'tag.edited', name: 'Tag updated', group: 'Tags'},

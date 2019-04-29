@@ -10,6 +10,10 @@
         <span class="gh-content-status-draft gh-badge gh-badge-black">Page</span>
     {{/if}}
 
+    {{#if this.isPoster}}
+        <span class="gh-content-status-draft gh-badge gh-badge-black">Poster</span>
+    {{/if}}
+
     {{#if this.isScheduled}}
         <span class="gh-content-status-draft gh-badge">Scheduled</span>
     {{/if}}
@@ -22,7 +26,7 @@
         <span class="gh-content-status-featured gh-badge gh-badge-blue">Featured</span>
     {{/if}}
 
-    {{#if (and this.isPublished (not this.post.page))}}
+    {{#if (and this.isPublished (not this.post.page) (not this.post.poster))}}
         <span class="gh-content-status-published">Published</span>
     {{/if}}
 

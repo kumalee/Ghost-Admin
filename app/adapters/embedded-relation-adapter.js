@@ -75,7 +75,6 @@ export default BaseAdapter.extend({
     buildIncludeURL(store, modelName, id, snapshot, requestType, query) {
         let includes = this.getEmbeddedRelations(store, modelName);
         let url = this.buildURL(modelName, id, snapshot, requestType, query);
-
         if (includes.length) {
             url += `?include=${includes.map(underscore).join(',')}`;
         }

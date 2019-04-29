@@ -65,6 +65,14 @@
                     {{#link-to "pages" data-test-nav="pages"}}{{svg-jar "pages"}}Pages{{/link-to}}
                 {{/if}}
             </li>
+            <li>
+                {{!-- clicking the Content link whilst on the content screen should reset the filter --}}
+                {{#if (eq router.currentRouteName "posters.index")}}
+                    {{#link-to "posters" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="posters"}}{{svg-jar "photos"}}Posters{{/link-to}}
+                {{else}}
+                    {{#link-to "posters" data-test-nav="posters"}}{{svg-jar "photos"}}Posters{{/link-to}}
+                {{/if}}
+            </li>
             {{#if (and feature.members (gh-user-can-admin session.user))}}
                 <li>{{#link-to "members" current-when="members member" data-test-nav="members"}}{{svg-jar "members"}}Members{{/link-to}}</li>
             {{/if}}

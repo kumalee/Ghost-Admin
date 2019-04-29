@@ -1,0 +1,119 @@
+<section class="gh-canvas">
+    <header class="gh-canvas-header">
+        <h2 class="gh-canvas-title" data-test-screen-title>Your posters</h2>
+        <section class="view-actions">
+            {{#link-to "editor.new" "poster" class="gh-btn gh-btn-green" data-test-new-poster-button=true}}<span>New poster</span>{{/link-to}}
+        </section>
+    </header>
+    <div class="gh-contentfilter">
+        <div class="gh-contentfilter-left">
+            {{#unless session.user.isContributor}}
+            {{#power-select
+                selected=selectedType
+                options=availableTypes
+                searchEnabled=false
+                onchange=(action "changeType")
+                tagName="div"
+                classNames="gh-contentfilter-menu gh-contentfilter-type"
+                triggerClass="gh-contentfilter-menu-trigger"
+                dropdownClass="gh-contentfilter-menu-dropdown"
+                matchTriggerWidth=false
+                data-test-type-select=true
+                as |type|
+            }}
+                {{type.name}}
+            {{/power-select}}
+            {{/unless}}
+
+            {{#unless session.user.isAuthorOrContributor}}
+            {{#power-select
+                selected=selectedAuthor
+                options=availableAuthors
+                searchField="name"
+                onchange=(action "changeAuthor")
+                tagName="div"
+                classNames="gh-contentfilter-menu gh-contentfilter-author"
+                triggerClass="gh-contentfilter-menu-trigger"
+                dropdownClass="gh-contentfilter-menu-dropdown"
+                searchPlaceholder="Search authors"
+                matchTriggerWidth=false
+                data-test-author-select=true
+                as |author|
+            }}
+                {{author.name}}
+            {{/power-select}}
+            {{/unless}}
+
+            {{#unless session.user.isContributor}}
+            {{#power-select
+                selected=selectedTag
+                options=availableTags
+                searchField="name"
+                onchange=(action "changeTag")
+                tagName="div"
+                classNames="gh-contentfilter-menu gh-contentfilter-tag"
+                triggerClass="gh-contentfilter-menu-trigger"
+                dropdownClass="gh-contentfilter-menu-dropdown"
+                searchPlaceholder="Search tags"
+                matchTriggerWidth=false
+                optionsComponent="power-select-vertical-collection-options"
+                data-test-tag-select=true
+                as |tag|
+            }}
+                {{tag.name}}
+            {{/power-select}}
+            {{/unless}}
+        </div>
+
+        <div class="gh-contentfilter-right">
+            Sort by:
+            {{#power-select
+                selected=selectedOrder
+                options=availableOrders
+                searchEnabled=false
+                onchange=(action "changeOrder")
+                tagName="div"
+                classNames="gh-contentfilter-menu gh-contentfilter-sort"
+                triggerClass="gh-contentfilter-menu-trigger"
+                dropdownClass="gh-contentfilter-menu-dropdown"
+                horizontalPosition="right"
+                matchTriggerWidth=false
+                data-test-order-select=true
+                as |order|
+            }}
+                {{order.name}}
+            {{/power-select}}
+        </div>
+    </div>
+
+    <section class="content-list">
+        <ol class="posts-list">
+            {{#each postsInfinityModel as |poster|}}
+                {{gh-posts-list-item
+                    post=poster
+                    onDoubleClick=(action "openEditor")
+                    data-test-poster-id=poster.id}}
+            {{else}}
+                <li class="no-posts-box">
+                    <div class="no-posts">
+                        {{#if showingAll}}
+                            {{svg-jar "pages-placeholder" class="gh-pages-placeholder"}}
+                            <h3>You haven't created any posters yet!</h3>
+                            {{#link-to "editor.new" "poster"}}<button type="button" class="gh-btn gh-btn-green gh-btn-lg"><span>Create a new poster</span></button>{{/link-to}}
+                        {{else}}
+                            <h3>No posters match the current filter</h3>
+                            {{#link-to "posters.index" (query-params type=null author=null tag=null)}}<button type="button" class="gh-btn gh-btn-lg"><span>Show all posters</span></button>{{/link-to}}
+                        {{/if}}
+                    </div>
+                </li>
+            {{/each}}
+        </ol>
+
+        {{gh-infinity-loader
+            infinityModel=postsInfinityModel
+            scrollable=".gh-main"
+            triggerOffset=1000}}
+    </section>
+
+    {{outlet}}
+</section>

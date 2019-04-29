@@ -25,7 +25,6 @@ export default RESTAdapter.extend(DataAdapterMixin, AjaxServiceSupport, {
             id = query.id;
             delete query.id;
         }
-
         return this.ajax(this.buildURL(type.modelName, id), 'GET', {data: query});
     },
 

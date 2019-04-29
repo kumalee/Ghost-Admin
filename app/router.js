@@ -28,6 +28,7 @@ Router.map(function () {
 
     this.route('posts', function () {});
     this.route('pages', function () {});
+    this.route('posters', function () {});
 
     this.route('editor', function () {
         this.route('new', {path: ':type'});

@@ -35,13 +35,13 @@ describe('Acceptance: Custom Post Templates', function () {
                     {
                         filename: 'custom-news-bulletin.hbs',
                         name: 'News Bulletin',
-                        for: ['post', 'page'],
+                        for: ['post', 'page', 'poster'],
                         slug: null
                     },
                     {
                         filename: 'custom-big-images.hbs',
                         name: 'Big Images',
-                        for: ['post', 'page'],
+                        for: ['post', 'page', 'poster'],
                         slug: null
                     },
                     {

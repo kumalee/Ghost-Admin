@@ -69,7 +69,6 @@ export default AuthenticatedRoute.extend({
 
             let perPage = this.perPage;
             let paginationSettings = assign({perPage, startingPage: 1}, paginationParams, queryParams);
-
             return this.infinity.model(this.modelName, paginationSettings);
         });
     },

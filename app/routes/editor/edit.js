@@ -18,7 +18,7 @@ export default AuthenticatedRoute.extend({
         // eslint-disable-next-line camelcase
         let {type: modelName, post_id} = params;
 
-        if (!['post', 'page'].includes(modelName)) {
+        if (!['post', 'page', 'poster'].includes(modelName)) {
             let path = transition.intent.url.replace(/^\//, '');
             return this.replaceWith('error404', {path, status: 404});
         }
