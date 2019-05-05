@@ -35,6 +35,12 @@ Router.map(function () {
         this.route('edit', {path: ':type/:post_id'});
     });
 
+    this.route('poster-editor', function () {
+        this.route('new', {path: ':type'});
+        this.route('edit', {path: ':type/:post_id'});
+    });
+
+
     this.route('staff', function () {
         this.route('user', {path: ':user_slug'});
     });

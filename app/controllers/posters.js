@@ -38,7 +38,7 @@ export default PostsController.extend({
 
     actions: {
         openEditor(poster) {
-            this.transitionToRoute('editor.edit', 'poster', poster.get('id'));
+            this.transitionToRoute('poster-editor.edit', 'poster', poster.get('id'));
         }
     }
 });

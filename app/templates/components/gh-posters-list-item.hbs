@@ -1,5 +1,5 @@
 <h3 class="gh-content-entry-title">
-    {{#link-to "editor.edit" this.post.displayName this.post.id class="permalink" title="Edit this post"}}
+    {{#link-to "poster-editor.edit" this.post.displayName this.post.id class="permalink" title="Edit this poster"}}
         {{this.post.title}}
     {{/link-to}}
 </h3>
@@ -18,7 +18,7 @@
         <span class="gh-content-status-featured gh-badge gh-badge-blue">Featured</span>
     {{/if}}
 
-    {{#if (and this.isPublished (not this.post.page))}}
+    {{#if (and this.isPublished)}}
         <span class="gh-content-status-published">Published</span>
     {{/if}}
 

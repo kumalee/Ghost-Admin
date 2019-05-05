@@ -2,7 +2,7 @@
     <header class="gh-canvas-header">
         <h2 class="gh-canvas-title" data-test-screen-title>Your posters</h2>
         <section class="view-actions">
-            {{#link-to "editor.new" "poster" class="gh-btn gh-btn-green" data-test-new-poster-button=true}}<span>New poster</span>{{/link-to}}
+            {{#link-to "poster-editor.new" "poster" class="gh-btn gh-btn-green" data-test-new-poster-button=true}}<span>New poster</span>{{/link-to}}
         </section>
     </header>
     <div class="gh-contentfilter">
@@ -89,7 +89,7 @@
     <section class="content-list">
         <ol class="posts-list">
             {{#each postsInfinityModel as |poster|}}
-                {{gh-posts-list-item
+                {{gh-posters-list-item
                     post=poster
                     onDoubleClick=(action "openEditor")
                     data-test-poster-id=poster.id}}
@@ -99,7 +99,7 @@
                         {{#if showingAll}}
                             {{svg-jar "pages-placeholder" class="gh-pages-placeholder"}}
                             <h3>You haven't created any posters yet!</h3>
-                            {{#link-to "editor.new" "poster"}}<button type="button" class="gh-btn gh-btn-green gh-btn-lg"><span>Create a new poster</span></button>{{/link-to}}
+                            {{#link-to "poster-editor.new" "poster"}}<button type="button" class="gh-btn gh-btn-green gh-btn-lg"><span>Create a new poster</span></button>{{/link-to}}
                         {{else}}
                             <h3>No posters match the current filter</h3>
                             {{#link-to "posters.index" (query-params type=null author=null tag=null)}}<button type="button" class="gh-btn gh-btn-lg"><span>Show all posters</span></button>{{/link-to}}
